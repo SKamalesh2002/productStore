@@ -1,6 +1,6 @@
 import type { field, button } from "../types/formTypes";
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikTouched } from "formik";
 import { FC } from "react";
 import {
   Button,
@@ -34,8 +34,8 @@ const FormTemplate: FC<Props> = ({
       onSubmit={(values) => onSubmit(values)}
     >
       {(Fields: {
-        value: string | number;
-        touched: boolean;
+        values: string | number;
+        touched: FormikTouched<any>;
         dirty: boolean;
         isValid: boolean;
         handleSubmit: any;
@@ -71,7 +71,7 @@ const FormTemplate: FC<Props> = ({
                     </option>
                   </Field>
                 )}
-                {Fields.value === "Others..." ? (
+                {Fields.values === "Others..." ? (
                   <Field
                     as={Input}
                     id={field.name}

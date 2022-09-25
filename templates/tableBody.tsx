@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-import { Welcome } from "../components/fakeProducts";
+import { Welcome } from "../types/productType";
 import { Tbody, Tr, Td } from "@chakra-ui/react";
 interface column {
   path?: string;
