@@ -12,7 +12,6 @@ import {
   CATEGORY_SELECT,
 } from "../store/slices/productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { NextComponentType, NextPageContext } from "next/types";
 
 interface Props {
   view: any;
@@ -25,7 +24,12 @@ const Layout: FC<Props> = ({ view }) => {
   const dispatch = useDispatch();
 
   return (
-    <Flex flexDirection="column" maxH="100vh" maxW="160vh" background="red.100">
+    <Flex
+      flexDirection="column"
+      maxH="100vh"
+      maxW="160vh"
+      background="gray.100"
+    >
       <Flex bg="black" textColor="white" p="5" maxW="160vh">
         <NavBar />
       </Flex>
