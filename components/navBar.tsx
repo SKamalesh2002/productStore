@@ -7,7 +7,7 @@ interface Props {}
 
 const NavBar: FC<Props> = () => {
   return (
-    <Flex justify="center" flexDirection="row" maxH="160vh" maxW="160vh">
+    <Flex justifyContent="space-between" flexDirection="row" w="100vw">
       <Flex>
         <Link href="/">
           <a>
@@ -16,19 +16,18 @@ const NavBar: FC<Props> = () => {
         </Link>
       </Flex>
 
-      <Flex justify="end">
-        <Stack as={Flex} flexDirection="row" pr="10" justify="flex-end">
-          <Link href="../Products/loginForm">
-            <a>
-              <Text>Login</Text>
-            </a>
-          </Link>
-          <Link href="../Products/registerForm">
-            <a>
-              <Text>Register</Text>
-            </a>
-          </Link>
-        </Stack>
+      <Flex pt="1rem" gap="2rem">
+        <Link href="../Products/loginForm">
+          <a>
+            <Text>Login</Text>
+          </a>
+        </Link>
+
+        <Link href="../Products/registerForm">
+          <a>
+            <Text>Register</Text>
+          </a>
+        </Link>
       </Flex>
     </Flex>
   );

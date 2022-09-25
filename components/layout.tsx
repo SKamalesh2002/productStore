@@ -24,18 +24,13 @@ const Layout: FC<Props> = ({ view }) => {
   const dispatch = useDispatch();
 
   return (
-    <Flex
-      flexDirection="column"
-      maxH="100vh"
-      maxW="160vh"
-      background="gray.100"
-    >
-      <Flex bg="black" textColor="white" p="5" maxW="160vh">
+    <Flex flexDirection="column" h="100vh" w="100vw" background="gray.100">
+      <Flex bg="black" textColor="white" p="5" w="100vw">
         <NavBar />
       </Flex>
 
       <Flex flexDirection="row" maxH="100vh">
-        <Flex maxH="-moz-max-content">
+        <Flex>
           <ListGroup
             categories={categories}
             onItemSelect={(category: category): void => {

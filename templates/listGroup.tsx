@@ -6,6 +6,7 @@ interface category {
   id: number | null;
   name: string;
 }
+
 interface Props {
   categories: category[];
   onItemSelect: (category: category) => void;
@@ -20,7 +21,9 @@ const ListGroup: FC<Props> = ({ categories, onItemSelect, selectedItem }) => {
     <Box
       background="white"
       w="max-content"
+      h="min-content"
       mt="1rem"
+      ml="3rem"
       rounded="md"
       border="1px"
       borderColor="gray.100"
