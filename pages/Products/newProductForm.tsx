@@ -81,8 +81,8 @@ const NewProductForm: FC<Props> = ({ data }) => {
     router.push("/");
   };
   return (
-    <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md" w="50vh" h="vh">
+    <Flex align="center" justify="center" h="100%" w="100%">
+      <Box bg="white" p={6} rounded="md" w="50vw" h="vh">
         <FormTemplate
           initialValues={initialValues}
           schema={schema}

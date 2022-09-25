@@ -4,15 +4,7 @@ import type { sortColumn } from "../../types/tableTypes";
 import { useState, FC } from "react";
 import Link from "next/link";
 import _ from "lodash";
-import {
-  Text,
-  Grid,
-  GridItem,
-  Button,
-  Flex,
-  Box,
-  Input,
-} from "@chakra-ui/react";
+import { Text, Button, Flex, Input } from "@chakra-ui/react";
 
 import ProductTable from "../../components/productTable";
 import ListGroup from "../../templates/listGroup";
@@ -45,8 +37,6 @@ const Products: FC<Props> = () => {
   const dispatch = useDispatch();
 
   const products = useSelector(productsSelector);
-  const categories = useSelector(categoriesSelector);
-  const currentCategory = useSelector(currentCategorySelector);
   const pageSize = useSelector(pageSizeSelector);
   const currentPage = useSelector(currentPageSelector);
   const totalCount = useSelector(totalCountSelector);
@@ -57,23 +47,9 @@ const Products: FC<Props> = () => {
 
   return (
     <Flex h="100vh" w="100vp" background="gray.100" overflow="hidden">
-      <Grid
-        templateAreas={`
-              "nav main"
-              "nav footer"`}
-        pl="1em"
-      >
-        {/* <GridItem area="nav">
-          <ListGroup
-            categories={categories}
-            onItemSelect={(category: category): void => {
-              dispatch(CATEGORY_SELECT(category));
-            }}
-            selectedItem={currentCategory}
-          />
-        </GridItem> */}
-        <GridItem area="main" p="5">
-          <Box>
+      <Flex flexDirection="column" pl="1em">
+        <Flex flexDirection="column" p="5">
+          <Flex>
             <Link href="../Products/newProductForm">
               <a href="">
                 <Button
@@ -87,11 +63,7 @@ const Products: FC<Props> = () => {
               </a>
             </Link>
             <Text p="3">{`Currently Showing ${totalCount} products`}</Text>
-            <Text>
-              {count}
-              <Counter />
-            </Text>
-          </Box>
+          </Flex>
           <Input
             placeholder="Search Title..."
             background="white"
@@ -116,8 +88,8 @@ const Products: FC<Props> = () => {
               dispatch(SORT(sortColumn));
             }}
           />
-        </GridItem>
-        <GridItem area="footer" pos="relative">
+        </Flex>
+        <Flex>
           <Pagination
             itemCount={totalCount}
             pageSize={pageSize}
@@ -126,8 +98,8 @@ const Products: FC<Props> = () => {
             }}
             currentPage={currentPage}
           ></Pagination>
-        </GridItem>
-      </Grid>
+        </Flex>
+      </Flex>
     </Flex>
   );
 };
