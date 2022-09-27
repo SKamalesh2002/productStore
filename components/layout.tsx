@@ -24,12 +24,18 @@ const Layout: FC<Props> = ({ view }) => {
   const dispatch = useDispatch();
 
   return (
-    <Flex flexDirection="column" h="100vh" w="100vw" background="gray.100">
+    <Flex
+      flexDirection="column"
+      h="100vh"
+      w="100vw"
+      overflow="hidden"
+      background="gray.100"
+    >
       <Flex bg="black" textColor="white" p="5" w="100vw">
         <NavBar />
       </Flex>
 
-      <Flex alignContent="center" h="100vh" w="100vw" overflow="hidden auto">
+      <Flex alignContent="center" h="100vh" w="100vw">
         <Flex>
           <ListGroup
             categories={categories}

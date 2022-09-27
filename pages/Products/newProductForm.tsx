@@ -75,13 +75,12 @@ const NewProductForm: FC<Props> = ({ data }) => {
     newProduct.rating = { count: values.rating * 3, rate: values.rating };
     newProduct.category = { id: -1, name: values.category };
 
-    console.log(newProduct);
     dispatch(SAVE_PRODUCT(newProduct));
 
     router.push("/");
   };
   return (
-    <Flex align="center" justify="center" h="100%" w="100%">
+    <Flex align="center" justify="center" h="100vh" w="100vw">
       <Box bg="white" p={6} rounded="md" w="50vw" h="vh">
         <FormTemplate
           initialValues={initialValues}

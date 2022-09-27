@@ -37,7 +37,7 @@ const Products: FC<Props> = () => {
   const search = useSelector(searchSelector);
 
   return (
-    <Flex h="100vh" w="100vw" overflow="hidden">
+    <Flex h="100vh" w="100vw">
       <Flex flexDirection="column" pl="1em">
         <Flex flexDirection="column" p="5">
           <Flex>
@@ -69,16 +69,18 @@ const Products: FC<Props> = () => {
               dispatch(CATEGORY_SELECT({ id: null, name: "All Category" }));
             }}
           />
-          <ProductTable
-            products={products}
-            onDelete={(product: Welcome): void => {
-              dispatch(DELETE_PRODUCT(product.id));
-            }}
-            sortColumn={sortColumn}
-            onSort={(sortColumn: sortColumn) => {
-              dispatch(SORT(sortColumn));
-            }}
-          />
+          <Flex>
+            <ProductTable
+              products={products}
+              onDelete={(product: Welcome): void => {
+                dispatch(DELETE_PRODUCT(product.id));
+              }}
+              sortColumn={sortColumn}
+              onSort={(sortColumn: sortColumn) => {
+                dispatch(SORT(sortColumn));
+              }}
+            />
+          </Flex>
         </Flex>
         <Flex>
           <Pagination
