@@ -80,8 +80,16 @@ const NewProductForm: FC<Props> = ({ data }) => {
     router.push("/");
   };
   return (
-    <Flex align="center" justify="center" h="100vh" w="100vw">
-      <Box bg="white" p={6} rounded="md" w="50vw" h="vh">
+    <Flex alignItems="center" justifyContent="center" w="max-content">
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        bg="white"
+        p={5}
+        rounded="md"
+        w="max-content"
+      >
         <FormTemplate
           initialValues={initialValues}
           schema={schema}
@@ -89,7 +97,7 @@ const NewProductForm: FC<Props> = ({ data }) => {
           onSubmit={onSubmit}
           buttons={buttons[0]}
         />
-      </Box>
+      </Flex>
     </Flex>
   );
 };
