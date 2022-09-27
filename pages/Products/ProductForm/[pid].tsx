@@ -1,6 +1,3 @@
-import { getProduct } from "../../../components/fakeProducts";
-import { Welcome } from "../../../types/productType";
-
 import { useRouter } from "next/router";
 import NewProductForm from "../newProductForm";
 import {
