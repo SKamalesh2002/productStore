@@ -7,12 +7,7 @@ interface Props {}
 
 const NavBar: FC<Props> = () => {
   return (
-    <Flex
-      justifyContent="space-between"
-      flexDirection="row"
-      w="100%"
-      overflow="hidden"
-    >
+    <Flex justifyContent="space-between" w="100vw" overflow="hidden">
       <Flex>
         <Link href="/">
           <a>

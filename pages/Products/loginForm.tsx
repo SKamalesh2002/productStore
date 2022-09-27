@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import * as yup from "yup";
 import FormTemplate from "../../templates/form";
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Heading } from "@chakra-ui/react";
 
 interface Props {}
 
@@ -51,8 +51,16 @@ const Login: FC<Props> = () => {
   ]);
 
   return (
-    <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md" w="vh" h="vh">
+    <Flex alignItems="center" justifyContent="center" w="50vw" h="75vh">
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        bg="white"
+        p={6}
+        rounded="md"
+      >
+        <Heading mb="8">Log in</Heading>
         <FormTemplate
           initialValues={initialValues}
           schema={schema}
@@ -60,7 +68,7 @@ const Login: FC<Props> = () => {
           onSubmit={onSubmit}
           buttons={buttons[0]}
         />
-      </Box>
+      </Flex>
     </Flex>
   );
 };

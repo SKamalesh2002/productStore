@@ -29,7 +29,7 @@ const Layout: FC<Props> = ({ view }) => {
         <NavBar />
       </Flex>
 
-      <Flex flexDirection="row" maxH="100vh">
+      <Flex alignContent="center" h="100vh" w="100vw" overflow="hidden auto">
         <Flex>
           <ListGroup
             categories={categories}
@@ -39,7 +39,9 @@ const Layout: FC<Props> = ({ view }) => {
             selectedItem={currentCategory}
           />
         </Flex>
-        <Flex flexDirection="row">{view}</Flex>
+        <Flex h="100vh" w="100vw" alignContent="center" justifyContent="center">
+          {view}
+        </Flex>
       </Flex>
     </Flex>
   );
