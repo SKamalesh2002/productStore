@@ -2,7 +2,14 @@ import type { category } from "../types/productType";
 
 import { FC, useState } from "react";
 import NavBar from "./navBar";
-import { Flex, Menu, MenuButton, MenuList, Tooltip } from "@chakra-ui/react";
+import {
+  Flex,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Tooltip,
+} from "@chakra-ui/react";
 
 import ListGroup from "../templates/listGroup";
 
@@ -12,7 +19,7 @@ import {
   CATEGORY_SELECT,
 } from "../store/slices/productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { ArrowDownIcon, ArrowRightIcon } from "@chakra-ui/icons";
+
 import { BsList } from "react-icons/bs";
 
 interface Props {
@@ -44,7 +51,7 @@ const Layout: FC<Props> = ({ view }) => {
       </Flex>
 
       <Flex mt="2rem" ml={["1rem", "-10rem"]}>
-        <Menu>
+        <Menu autoSelect={false}>
           <MenuButton _expanded={{ bg: "gray.300", rounded: "lg" }}>
             <Tooltip label="Categories">
               <span>
@@ -52,14 +59,27 @@ const Layout: FC<Props> = ({ view }) => {
               </span>
             </Tooltip>
           </MenuButton>
-          <MenuList w="max-content">
-            <ListGroup
+          <MenuList w="max-content" transitionDelay="150ms">
+            {categories.map((category) => (
+              <MenuItem
+                {...(currentCategory.name === category.name
+                  ? { bg: "black", textColor: "white" }
+                  : { bg: "white", textColor: "black" })}
+                onClick={() => {
+                  dispatch(CATEGORY_SELECT(category));
+                }}
+                isFocusable={true}
+              >
+                {category.name}
+              </MenuItem>
+            ))}
+            {/* <ListGroup
               categories={categories}
               onItemSelect={(category: category): void => {
                 dispatch(CATEGORY_SELECT(category));
               }}
               selectedItem={currentCategory}
-            />
+            /> */}
           </MenuList>
         </Menu>
       </Flex>
