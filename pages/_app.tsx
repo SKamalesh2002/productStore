@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <ChakraProvider>
         <Layout view={<Component {...pageProps} />} />
+        {/* <Component {...pageProps} /> */}
       </ChakraProvider>
     </Provider>
   );

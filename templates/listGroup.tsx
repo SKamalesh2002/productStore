@@ -23,14 +23,16 @@ const ListGroup: FC<Props> = ({ categories, onItemSelect, selectedItem }) => {
       w="max-content"
       h="min-content"
       mt="1rem"
-      ml="3rem"
       rounded="md"
       border="1px"
       borderColor="gray.100"
+      borderRadius="10"
     >
       {categories.map((category) => (
         <Flex
           key={category.id}
+          _first={{ borderTopRadius: "10" }}
+          _last={{ borderBottomRadius: "10" }}
           p="2"
           borderBottom="1px"
           borderBottomColor="gray.100"

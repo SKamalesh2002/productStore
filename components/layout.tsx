@@ -28,14 +28,14 @@ const Layout: FC<Props> = ({ view }) => {
       flexDirection="column"
       h="100vh"
       w="100vw"
-      overflow="hidden"
       background="gray.100"
+      overflow="hidden"
     >
       <Flex bg="black" textColor="white" p="5" w="100vw">
         <NavBar />
       </Flex>
 
-      <Flex alignContent="center" h="100vh" w="100vw">
+      <Flex ml={["-10rem", "10"]} alignContent="center" h="100vh" w="100vw">
         <Flex>
           <ListGroup
             categories={categories}
@@ -45,7 +45,7 @@ const Layout: FC<Props> = ({ view }) => {
             selectedItem={currentCategory}
           />
         </Flex>
-        <Flex h="100vh" w="100vw" alignContent="center" justifyContent="center">
+        <Flex h="100vh" w="100%">
           {view}
         </Flex>
       </Flex>

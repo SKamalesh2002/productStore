@@ -55,21 +55,23 @@ const Products: FC<Props> = () => {
             </Link>
             <Text p="3">{`Currently Showing ${totalCount} products`}</Text>
           </Flex>
-          <Input
-            placeholder="Search Title..."
-            background="white"
-            border="2px"
-            borderColor="black"
-            mb="4"
-            value={search}
-            onChange={(ev) => {
-              const search = ev.target.value;
-              dispatch(PAGE_CHANGE(1));
-              dispatch(SEARCH(search));
-              dispatch(CATEGORY_SELECT({ id: null, name: "All Category" }));
-            }}
-          />
-          <Flex>
+
+          <Flex flexDirection="column" w={["20rem", "40rem", "70rem"]}>
+            <Input
+              placeholder="Search Title..."
+              background="white"
+              border="2px"
+              borderColor="black"
+              mb="4"
+              value={search}
+              onChange={(ev) => {
+                const search = ev.target.value;
+                dispatch(PAGE_CHANGE(1));
+                dispatch(SEARCH(search));
+                dispatch(CATEGORY_SELECT({ id: null, name: "All Category" }));
+              }}
+            />
+
             <ProductTable
               products={products}
               onDelete={(product: Welcome): void => {

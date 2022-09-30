@@ -1,7 +1,7 @@
 import _ from "lodash";
 
 import { Welcome } from "../types/productType";
-import { Tbody, Tr, Td } from "@chakra-ui/react";
+import { Tbody, Tr, Td, Flex } from "@chakra-ui/react";
 interface column {
   path?: string;
   key: string;
@@ -29,7 +29,9 @@ function TableBody({ data, columns }: Props): any {
       {data.map((item: Welcome) => (
         <Tr key={item.id}>
           {columns.map((column: column) => (
-            <Td key={createKey(item, column)}>{renderCell(item, column)}</Td>
+            <Td w="10" key={createKey(item, column)}>
+              {renderCell(item, column)}
+            </Td>
           ))}
         </Tr>
       ))}

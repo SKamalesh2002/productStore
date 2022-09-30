@@ -16,7 +16,7 @@ const NavBar: FC<Props> = () => {
         </Link>
       </Flex>
 
-      <Flex pt="1rem" gap="2rem">
+      <Flex pt="1rem" gap="1rem">
         <Link href="../Products/loginForm">
           <a>
             <Text>Login</Text>

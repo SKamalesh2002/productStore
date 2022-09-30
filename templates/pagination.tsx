@@ -25,10 +25,12 @@ const Pagination: FC<Props> = ({
       background="white"
       m="1rem"
       borderColor="gray.100"
-      borderRadius="sm"
+      borderRadius="md"
     >
       {pages.map((pageNumber) => (
         <Box
+          _first={{ borderLeftRadius: "md" }}
+          _last={{ borderRightRadius: "md" }}
           key={pageNumber}
           borderRight="1px"
           borderColor="gray.100"

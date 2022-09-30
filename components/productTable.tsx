@@ -95,7 +95,6 @@ export default function ProductTable({
   ];
 
   return (
-    // shorthand using the `Grid` component
     <TableLayout
       data={products}
       columns={columns}
