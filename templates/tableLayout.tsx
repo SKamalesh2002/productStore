@@ -22,7 +22,12 @@ interface Props {
 
 function TableLayout({ columns, data, sortColumn, onSort }: Props) {
   return (
-    <TableContainer background="white" rounded="md" overflow="scroll">
+    <TableContainer
+      background="white"
+      rounded="md"
+      overflow="scroll"
+      scrollBehavior="smooth"
+    >
       <Table variant="simple" size="sm">
         <TableHeader
           columns={columns}

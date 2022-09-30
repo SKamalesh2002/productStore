@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import FormTemplate from "../../templates/form";
 import * as yup from "yup";
 
-import { Flex, Box, Heading } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 import { categories } from "../../components/fakeProducts";
@@ -88,7 +88,7 @@ const NewProductForm: FC<Props> = ({ data }) => {
       mt="5rem"
       w="30rem"
       h="75vh"
-      pl="1rem"
+      pr="1rem"
     >
       <Flex
         scrollBehavior="smooth"

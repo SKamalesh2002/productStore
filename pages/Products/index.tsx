@@ -39,8 +39,8 @@ const Products: FC<Props> = () => {
   return (
     <Flex h="100vh" w="100vw">
       <Flex flexDirection="column" pl="1em">
-        <Flex flexDirection="column" p="5">
-          <Flex>
+        <Flex flexDirection="column" p="2rem">
+          <Flex w="75%">
             <Link href="../Products/newProductForm">
               <a href="">
                 <Button
@@ -56,32 +56,40 @@ const Products: FC<Props> = () => {
             <Text p="3">{`Currently Showing ${totalCount} products`}</Text>
           </Flex>
 
-          <Flex flexDirection="column" w={["20rem", "40rem", "70rem"]}>
-            <Input
-              placeholder="Search Title..."
-              background="white"
-              border="2px"
-              borderColor="black"
-              mb="4"
-              value={search}
-              onChange={(ev) => {
-                const search = ev.target.value;
-                dispatch(PAGE_CHANGE(1));
-                dispatch(SEARCH(search));
-                dispatch(CATEGORY_SELECT({ id: null, name: "All Category" }));
-              }}
-            />
+          <Flex
+            flexDirection="column"
+            w={["25rem", "40rem", "70rem"]}
+            pr="1rem"
+          >
+            <Flex w="75%">
+              <Input
+                placeholder="Search Title..."
+                background="white"
+                border="2px"
+                borderColor="black"
+                mb="4"
+                value={search}
+                onChange={(ev) => {
+                  const search = ev.target.value;
+                  dispatch(PAGE_CHANGE(1));
+                  dispatch(SEARCH(search));
+                  dispatch(CATEGORY_SELECT({ id: null, name: "All Category" }));
+                }}
+              />
+            </Flex>
 
-            <ProductTable
-              products={products}
-              onDelete={(product: Welcome): void => {
-                dispatch(DELETE_PRODUCT(product.id));
-              }}
-              sortColumn={sortColumn}
-              onSort={(sortColumn: sortColumn) => {
-                dispatch(SORT(sortColumn));
-              }}
-            />
+            <Flex w="75%">
+              <ProductTable
+                products={products}
+                onDelete={(product: Welcome): void => {
+                  dispatch(DELETE_PRODUCT(product.id));
+                }}
+                sortColumn={sortColumn}
+                onSort={(sortColumn: sortColumn) => {
+                  dispatch(SORT(sortColumn));
+                }}
+              />
+            </Flex>
           </Flex>
         </Flex>
         <Flex>

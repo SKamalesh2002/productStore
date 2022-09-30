@@ -45,7 +45,7 @@ const Layout: FC<Props> = ({ view }) => {
             selectedItem={currentCategory}
           />
         </Flex>
-        <Flex h="100vh" w="100%">
+        <Flex ml="1rem" h="100vh" w="100%">
           {view}
         </Flex>
       </Flex>

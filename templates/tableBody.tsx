@@ -29,9 +29,7 @@ function TableBody({ data, columns }: Props): any {
       {data.map((item: Welcome) => (
         <Tr key={item.id}>
           {columns.map((column: column) => (
-            <Td w="10" key={createKey(item, column)}>
-              {renderCell(item, column)}
-            </Td>
+            <Td key={createKey(item, column)}>{renderCell(item, column)}</Td>
           ))}
         </Tr>
       ))}

@@ -56,7 +56,7 @@ const Login: FC<Props> = () => {
       justifyContent="center"
       w="30rem"
       h="75vh"
-      pl="1rem"
+      pr="1rem"
     >
       <Flex
         alignItems="center"
