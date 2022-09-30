@@ -59,7 +59,7 @@ const Layout: FC<Props> = ({ view }) => {
               </span>
             </Tooltip>
           </MenuButton>
-          <MenuList w="max-content" transitionDelay="150ms">
+          <MenuList w="max-content">
             {categories.map((category) => (
               <MenuItem
                 key={category.id}
