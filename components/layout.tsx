@@ -62,6 +62,7 @@ const Layout: FC<Props> = ({ view }) => {
           <MenuList w="max-content" transitionDelay="150ms">
             {categories.map((category) => (
               <MenuItem
+                key={category.id}
                 {...(currentCategory.name === category.name
                   ? { bg: "black", textColor: "white" }
                   : { bg: "white", textColor: "black" })}
