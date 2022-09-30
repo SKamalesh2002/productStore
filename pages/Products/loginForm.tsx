@@ -51,16 +51,23 @@ const Login: FC<Props> = () => {
   ]);
 
   return (
-    <Flex alignItems="center" justifyContent="center" w="50vw" h="75vh">
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      w="30rem"
+      h="75vh"
+      pl="1rem"
+    >
       <Flex
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
         bg="white"
         p={6}
-        rounded="md"
+        rounded="lg"
+        w="max-content"
       >
-        <Heading mb="8">Log in</Heading>
+        <Heading mb="1rem">Log in</Heading>
         <FormTemplate
           initialValues={initialValues}
           schema={schema}

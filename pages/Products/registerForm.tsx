@@ -50,7 +50,13 @@ const Register: FC<Props> = () => {
     { id: 0, name: "register", label: "Register" },
   ]);
   return (
-    <Flex alignItems="center" justifyContent="center" w="50vw" h="75vh">
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      w="30rem"
+      h="75vh"
+      pl="1rem"
+    >
       <Flex
         alignItems="center"
         flexDirection="column"

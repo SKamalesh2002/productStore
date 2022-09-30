@@ -22,20 +22,31 @@ interface Props {
 
 export const Product = ({ product }: Props) => {
   return (
-    <Flex h="100vh" background="gray.100">
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      background="gray.100"
+      scrollBehavior="smooth"
+      overflow="scroll"
+      mt="3rem"
+      w="30rem"
+      h="75vh"
+      pl="1rem"
+    >
       <Container
         maxW={"7xl"}
         background="white"
         h="max-content"
         mt="10"
         pl="8"
-        rounded="3xl"
+        rounded="lg"
       >
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
           py={{ base: 18, md: 24 }}
         >
+          <Flex h="lg"></Flex>
           <Flex>
             <Image
               rounded={"md"}

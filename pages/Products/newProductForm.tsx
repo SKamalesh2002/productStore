@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import FormTemplate from "../../templates/form";
 import * as yup from "yup";
 
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Heading } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 import { categories } from "../../components/fakeProducts";
@@ -80,16 +80,29 @@ const NewProductForm: FC<Props> = ({ data }) => {
     router.push("/");
   };
   return (
-    <Flex alignItems="center" justifyContent="center" w="max-content">
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      scrollBehavior="smooth"
+      overflow="scroll"
+      mt="5rem"
+      w="30rem"
+      h="75vh"
+      pl="1rem"
+    >
       <Flex
+        scrollBehavior="smooth"
+        overflow="scroll"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
         bg="white"
-        p={5}
-        rounded="md"
+        p={6}
+        rounded="lg"
         w="max-content"
       >
+        <Flex h="10rem"></Flex>
+        <Heading mb="1rem">New Product</Heading>
         <FormTemplate
           initialValues={initialValues}
           schema={schema}

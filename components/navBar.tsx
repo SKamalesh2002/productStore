@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Box, Flex, Heading, Spacer, Text, Stack } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
 interface Props {}
