@@ -35,8 +35,8 @@ const Layout: FC<Props> = ({ view }) => {
         <NavBar />
       </Flex>
 
-      <Flex ml={["-10rem", "10"]} alignContent="center" h="100vh" w="100vw">
-        <Flex>
+      <Flex alignContent="center" h="100vh" w="100vw">
+        <Flex ml={["-10rem", "10"]}>
           <ListGroup
             categories={categories}
             onItemSelect={(category: category): void => {
