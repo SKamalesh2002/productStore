@@ -90,7 +90,7 @@ const Layout: FC<Props> = ({ view }) => {
         </Flex>
 
         <Flex alignContent="center" h="100vh" w="100vw">
-          <Flex ml={["-10rem", "10"]}>
+          <Flex ml={["-10rem", url === "/" ? "2rem" : "-10rem"]}>
             <ListGroup
               categories={categories}
               onItemSelect={(category: category): void => {
