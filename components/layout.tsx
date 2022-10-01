@@ -50,52 +50,48 @@ const Layout: FC<Props> = ({ view }) => {
         <NavBar />
       </Flex>
 
-      <Flex mt="2rem" ml={["1rem", "-10rem"]}>
-        <Menu autoSelect={false}>
-          <MenuButton _expanded={{ bg: "gray.300", rounded: "lg" }}>
-            <Tooltip label="Categories">
-              <span>
-                <BsList size="2rem" onClick={toggleDropDown} />
-              </span>
-            </Tooltip>
-          </MenuButton>
-          <MenuList w="max-content">
-            {categories.map((category) => (
-              <MenuItem
-                key={category.id}
-                {...(currentCategory.name === category.name
-                  ? { bg: "black", textColor: "white" }
-                  : { bg: "white", textColor: "black" })}
-                onClick={() => {
-                  dispatch(CATEGORY_SELECT(category));
-                }}
-                isFocusable={true}
-              >
-                {category.name}
-              </MenuItem>
-            ))}
-          </MenuList>
-        </Menu>
-      </Flex>
-
-      <Flex
-        alignContent="center"
-        h="100vh"
-        w="100vw"
-        overflow="scroll"
-        scrollBehavior="smooth"
-      >
-        <Flex ml={["-10rem", "10"]}>
-          <ListGroup
-            categories={categories}
-            onItemSelect={(category: category): void => {
-              dispatch(CATEGORY_SELECT(category));
-            }}
-            selectedItem={currentCategory}
-          />
+      <Flex flexDirection="column" overflow="scroll" scrollBehavior="smooth">
+        <Flex mt="2rem" ml={["1rem", "-10rem"]}>
+          <Menu autoSelect={false}>
+            <MenuButton _expanded={{ bg: "gray.300", rounded: "lg" }}>
+              <Tooltip label="Categories">
+                <span>
+                  <BsList size="2rem" onClick={toggleDropDown} />
+                </span>
+              </Tooltip>
+            </MenuButton>
+            <MenuList w="max-content">
+              {categories.map((category) => (
+                <MenuItem
+                  key={category.id}
+                  {...(currentCategory.name === category.name
+                    ? { bg: "black", textColor: "white" }
+                    : { bg: "white", textColor: "black" })}
+                  onClick={() => {
+                    dispatch(CATEGORY_SELECT(category));
+                  }}
+                  isFocusable={true}
+                >
+                  {category.name}
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
         </Flex>
-        <Flex ml="1rem" h="100vh" w="100%">
-          {view}
+
+        <Flex alignContent="center" h="100vh" w="100vw">
+          <Flex ml={["-10rem", "10"]}>
+            <ListGroup
+              categories={categories}
+              onItemSelect={(category: category): void => {
+                dispatch(CATEGORY_SELECT(category));
+              }}
+              selectedItem={currentCategory}
+            />
+          </Flex>
+          <Flex ml="1rem" h="100vh" w="100%">
+            {view}
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
