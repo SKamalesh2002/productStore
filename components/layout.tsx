@@ -21,6 +21,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import { BsList } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 interface Props {
   view: any;
@@ -38,6 +39,12 @@ const Layout: FC<Props> = ({ view }) => {
     if (dropDown) setDropDown(false);
     else setDropDown(true);
   };
+
+  const router = useRouter();
+  const url = router.pathname;
+
+  console.log(url);
+
   return (
     <Flex
       flexDirection="column"
@@ -53,7 +60,10 @@ const Layout: FC<Props> = ({ view }) => {
       <Flex flexDirection="column" overflow="scroll" scrollBehavior="smooth">
         <Flex mt="2rem" ml={["1rem", "-10rem"]}>
           <Menu autoSelect={false}>
-            <MenuButton _expanded={{ bg: "gray.300", rounded: "lg" }}>
+            <MenuButton
+              _expanded={{ bg: "gray.300", rounded: "lg" }}
+              disabled={url !== "/"}
+            >
               <Tooltip label="Categories">
                 <span>
                   <BsList size="2rem" onClick={toggleDropDown} />
