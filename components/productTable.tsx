@@ -55,6 +55,10 @@ export default function ProductTable({
   sortColumn,
   onSort,
 }: Props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+  const toast = useToast();
+
   const columns: column[] = [
     {
       label: "Title",
@@ -86,7 +90,7 @@ export default function ProductTable({
     {
       key: "View",
       content: (column: Welcome) => {
-        const { isOpen, onOpen, onClose } = useDisclosure();
+        // const { isOpen, onOpen, onClose } = useDisclosure();
         return (
           <>
             <Icon
@@ -140,11 +144,7 @@ export default function ProductTable({
     {
       key: "Delete",
       content: (column: Welcome) => {
-        const { isOpen, onOpen, onClose } = useDisclosure();
-        const cancelRef =
-          React.useRef() as React.MutableRefObject<HTMLInputElement>;
-
-        const toast = useToast();
+        // const { isOpen, onOpen, onClose } = useDisclosure();
 
         const handleDelete = (column: Welcome) => {
           onDelete(column);
