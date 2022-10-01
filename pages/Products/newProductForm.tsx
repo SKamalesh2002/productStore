@@ -85,9 +85,8 @@ const NewProductForm: FC<Props> = ({ data }) => {
       justifyContent="center"
       scrollBehavior="smooth"
       overflow="scroll"
-      mt="5rem"
-      w="30rem"
-      h="75vh"
+      w="100%"
+      h="100vh"
       pr="1rem"
     >
       <Flex
@@ -99,9 +98,8 @@ const NewProductForm: FC<Props> = ({ data }) => {
         bg="white"
         p={6}
         rounded="lg"
-        w="max-content"
+        w="-moz-max-content"
       >
-        <Flex h="10rem"></Flex>
         <Heading mb="1rem">New Product</Heading>
         <FormTemplate
           initialValues={initialValues}

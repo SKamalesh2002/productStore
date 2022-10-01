@@ -53,8 +53,8 @@ const Register: FC<Props> = () => {
     <Flex
       alignItems="center"
       justifyContent="center"
-      w="30rem"
-      h="75vh"
+      w="100%"
+      h="100vh"
       pr="1rem"
     >
       <Flex
