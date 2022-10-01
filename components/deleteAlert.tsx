@@ -30,6 +30,7 @@ const DeleteAlert: FC<Props> = ({ onDelete, column }) => {
     onDelete(column);
     onClose();
     toast({
+      size: ["xs", "lg"],
       title: "Product Deleted",
       description: "Product successfully Deleted",
       status: "error",
