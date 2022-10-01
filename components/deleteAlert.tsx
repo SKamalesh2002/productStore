@@ -34,10 +34,11 @@ const DeleteAlert: FC<Props> = ({ onDelete, column }) => {
       title: "Product Deleted",
       description: "Product successfully Deleted",
       position: "top",
-      status: "error",
+      status: "success",
       duration: 2000,
       isClosable: true,
       variant: "subtle",
+      colorScheme: "red",
     });
   };
 
