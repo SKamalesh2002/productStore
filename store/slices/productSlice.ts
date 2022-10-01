@@ -89,12 +89,10 @@ export const productSlice = createSlice({
     },
 
     SAVE_PRODUCT: (state, action: PayloadAction<Welcome>) => {
-      console.log(action.payload);
       let productInDb: Welcome | undefined =
         state.products.find((p) => p.id === action.payload.id) ||
         ({} as Welcome);
 
-      console.log(productInDb.id);
       productInDb.id = action.payload.id;
       productInDb.title = action.payload.title;
       productInDb.price = action.payload.price;

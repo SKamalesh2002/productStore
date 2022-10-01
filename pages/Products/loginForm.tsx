@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import * as yup from "yup";
 import FormTemplate from "../../templates/form";
 import { Flex, Box, Heading } from "@chakra-ui/react";
+import { stringify } from "querystring";
 
 interface Props {}
 
@@ -43,7 +44,7 @@ const Login: FC<Props> = () => {
   ]);
 
   const onSubmit = (values: any) => {
-    console.log(values);
+    alert(stringify(values));
   };
 
   const buttons = useState<button[]>([

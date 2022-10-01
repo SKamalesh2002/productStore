@@ -44,8 +44,6 @@ const Layout: FC<Props> = ({ view }) => {
   const router = useRouter();
   const url = router.pathname;
 
-  console.log(url);
-
   return (
     <Flex
       flexDirection="column"

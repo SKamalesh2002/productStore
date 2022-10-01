@@ -3,6 +3,7 @@ import * as yup from "yup";
 
 import { Flex, Heading } from "@chakra-ui/react";
 import FormTemplate from "../../templates/form";
+import { stringify } from "querystring";
 
 interface Props {}
 interface initialValues {
@@ -43,7 +44,7 @@ const Register: FC<Props> = () => {
     { id: 2, label: "Name", name: "name", type: "text" },
   ]);
   const onSubmit = (values: any) => {
-    console.log(values);
+    alert(stringify(values));
   };
 
   const buttons = useState<button[]>([
