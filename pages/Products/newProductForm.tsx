@@ -98,8 +98,8 @@ const NewProductForm: FC<Props> = ({ data }) => {
         bg="white"
         p={6}
         rounded="lg"
-        w="-moz-max-content"
-        h="-moz-max-content"
+        w="100vw"
+        h="100vh"
       >
         <Heading mb="1rem">New Product</Heading>
         <FormTemplate

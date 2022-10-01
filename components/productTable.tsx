@@ -3,8 +3,25 @@ import type { sortColumn } from "../types/tableTypes";
 
 import TableLayout from "../templates/tableLayout";
 
-import { Button, Link as LinkTemplate } from "@chakra-ui/react";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogCloseButton,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  Button,
+  color,
+  ColorModeScript,
+  Icon,
+  Link as LinkTemplate,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 import Link from "next/link";
+import React from "react";
+import { BsFillEyeFill, BsFillTrashFill } from "react-icons/bs";
 
 interface Props {
   products: Welcome[];
@@ -60,14 +77,7 @@ export default function ProductTable({
         return (
           <Link href={`Products/${column.id}`}>
             <a>
-              <Button
-                id={"" + column.id}
-                bgGradient="linear(to-tr, #FFDD00, #FBB034)"
-                _hover={{ bgGradient: "linear(to-tl, #FFDD00, #FBB034)" }}
-                size="sm"
-              >
-                View
-              </Button>
+              <Icon boxSize="1rem" as={BsFillEyeFill} color="messenger.500" />
             </a>
           </Link>
         );
@@ -76,19 +86,59 @@ export default function ProductTable({
     {
       key: "Delete",
       content: (column: Welcome) => {
+        const { isOpen, onOpen, onClose } = useDisclosure();
+        const cancelRef =
+          React.useRef() as React.MutableRefObject<HTMLInputElement>;
+
+        const toast = useToast();
+
+        const handleDelete = (column: Welcome) => {
+          onDelete(column);
+          onClose();
+          toast({
+            title: "Product Deleted",
+            description: "Product successfully Deleted",
+            status: "error",
+            duration: 2000,
+            isClosable: true,
+          });
+        };
         return (
-          <Button
-            id={"" + column.id}
-            bgGradient="linear(to-tr, #FE5858, #D51A13)"
-            _hover={{
-              bgGradient: "linear(to-tl, #FE5858, #D51A13)",
-            }}
-            textColor="White"
-            size="sm"
-            onClick={() => onDelete(column)}
-          >
-            Delete
-          </Button>
+          <>
+            <Icon
+              boxSize="1rem"
+              textColor="red"
+              as={BsFillTrashFill}
+              id={"" + column.id}
+              onClick={onOpen}
+            />
+            <AlertDialog
+              isOpen={isOpen}
+              onClose={onClose}
+              leastDestructiveRef={cancelRef}
+              isCentered
+            >
+              <AlertDialogOverlay />
+              <AlertDialogContent>
+                <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                  Delete Product
+                </AlertDialogHeader>
+
+                <AlertDialogCloseButton />
+                <AlertDialogBody>Sure you want to delete?</AlertDialogBody>
+                <AlertDialogFooter>
+                  <Button onClick={onClose}> Cancel</Button>
+                  <Button
+                    colorScheme="red"
+                    onClick={() => handleDelete(column)}
+                    ml={3}
+                  >
+                    Delete
+                  </Button>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </>
         );
       },
     },
