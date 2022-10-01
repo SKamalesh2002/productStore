@@ -53,7 +53,7 @@ const DeleteAlert: FC<Props> = ({ onDelete, column }) => {
         isCentered
       >
         <AlertDialogOverlay />
-        <AlertDialogContent>
+        <AlertDialogContent w={["xs", "lg"]}>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
             Delete Product
           </AlertDialogHeader>

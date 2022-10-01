@@ -35,7 +35,7 @@ const ViewModel: FC<Props> = ({ column }) => {
       />
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent w={["xs", "lg"]}>
           <ModalHeader>{column.title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
