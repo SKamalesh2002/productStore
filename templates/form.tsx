@@ -42,7 +42,13 @@ const FormTemplate: FC<Props> = ({
       }) => (
         <Form onSubmit={Fields.handleSubmit}>
           {fields.map((field) => (
-            <VStack key={field.id} spacing={10} align="flex-end" h="13vh">
+            <VStack
+              key={field.id}
+              spacing={10}
+              align="flex-end"
+              h="100%"
+              pb="1rem"
+            >
               <FormControl key={field.id}>
                 <FormLabel htmlFor={field.name}>{field.label}</FormLabel>
                 {field.type !== "select" ? (
