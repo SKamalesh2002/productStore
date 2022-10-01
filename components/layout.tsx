@@ -74,18 +74,17 @@ const Layout: FC<Props> = ({ view }) => {
                 {category.name}
               </MenuItem>
             ))}
-            {/* <ListGroup
-              categories={categories}
-              onItemSelect={(category: category): void => {
-                dispatch(CATEGORY_SELECT(category));
-              }}
-              selectedItem={currentCategory}
-            /> */}
           </MenuList>
         </Menu>
       </Flex>
 
-      <Flex alignContent="center" h="100vh" w="100vw">
+      <Flex
+        alignContent="center"
+        h="100vh"
+        w="100vw"
+        overflow="scroll"
+        scrollBehavior="smooth"
+      >
         <Flex ml={["-10rem", "10"]}>
           <ListGroup
             categories={categories}
