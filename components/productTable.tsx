@@ -14,8 +14,20 @@ import {
   Button,
   color,
   ColorModeScript,
+  Divider,
+  Flex,
   Icon,
+  Image,
   Link as LinkTemplate,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Spacer,
+  Text,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
@@ -74,12 +86,54 @@ export default function ProductTable({
     {
       key: "View",
       content: (column: Welcome) => {
+        const { isOpen, onOpen, onClose } = useDisclosure();
         return (
-          <Link href={`Products/${column.id}`}>
-            <a>
-              <Icon boxSize="1rem" as={BsFillEyeFill} color="messenger.500" />
-            </a>
-          </Link>
+          <>
+            <Icon
+              boxSize="1rem"
+              as={BsFillEyeFill}
+              color="messenger.500"
+              onClick={onOpen}
+            />
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>{column.title}</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Flex flexDirection="column">
+                    <Image
+                      rounded={"md"}
+                      alt={"product image"}
+                      src={column.image}
+                      fit={"cover"}
+                      align={"center"}
+                      w={"100%"}
+                      h={{ base: "100%", sm: "400px", lg: "500px" }}
+                    />
+                    <Flex pt="1rem" flexDirection="column">
+                      <Text>₹{column.price}</Text>
+                      <Spacer />
+                      <Text>{column.description}</Text>
+                    </Flex>
+                  </Flex>
+                </ModalBody>
+
+                <ModalFooter>
+                  <Button mr={3} onClick={onClose}>
+                    Close
+                  </Button>
+                  <Link href={`Products/${column.id}`}>
+                    <a>
+                      <Button colorScheme="messenger" variant="solid">
+                        View
+                      </Button>
+                    </a>
+                  </Link>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+          </>
         );
       },
     },

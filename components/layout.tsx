@@ -3,6 +3,7 @@ import type { category } from "../types/productType";
 import { FC, useState } from "react";
 import NavBar from "./navBar";
 import {
+  Divider,
   Flex,
   Menu,
   MenuButton,
@@ -99,6 +100,7 @@ const Layout: FC<Props> = ({ view }) => {
               selectedItem={currentCategory}
             />
           </Flex>
+
           <Flex ml="1rem" h="100vh" w="100%">
             {view}
           </Flex>
