@@ -3,37 +3,10 @@ import type { sortColumn } from "../types/tableTypes";
 
 import TableLayout from "../templates/tableLayout";
 
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogCloseButton,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
-  Button,
-  color,
-  ColorModeScript,
-  Divider,
-  Flex,
-  Icon,
-  Image,
-  Link as LinkTemplate,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Spacer,
-  Text,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
+import { Link as LinkTemplate } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import { BsFillEyeFill, BsFillTrashFill } from "react-icons/bs";
+
 import ViewModel from "./viewModel";
 import DeleteAlert from "./deleteAlert";
 

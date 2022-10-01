@@ -60,6 +60,7 @@ const Layout: FC<Props> = ({ view }) => {
         <Flex mt="2rem" ml={["1rem", "-10rem"]}>
           <Menu autoSelect={false}>
             <MenuButton
+              ml={["-10rem", url === "/" ? "2rem" : "-10rem"]}
               _expanded={{ bg: "gray.300", rounded: "lg" }}
               disabled={url !== "/"}
             >
