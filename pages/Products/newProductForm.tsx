@@ -4,13 +4,14 @@ import { FC, useState } from "react";
 import FormTemplate from "../../templates/form";
 import * as yup from "yup";
 
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, useToast } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
 import { categories } from "../../components/fakeProducts";
 import { Welcome } from "../../types/productType";
 import { useDispatch } from "react-redux";
 import { SAVE_PRODUCT } from "../../store/slices/productSlice";
+
 interface Props {
   data: initialValues;
 }
@@ -64,6 +65,7 @@ const NewProductForm: FC<Props> = ({ data }) => {
 
   const dispatch = useDispatch();
 
+  const toast = useToast();
   const onSubmit = (values: initialValues) => {
     let newProduct = {} as Welcome;
 
@@ -77,7 +79,26 @@ const NewProductForm: FC<Props> = ({ data }) => {
 
     dispatch(SAVE_PRODUCT(newProduct));
 
-    router.push("/");
+    router.replace("/");
+
+    if (data)
+      toast({
+        title: "Product Updated",
+        description: "Successfully",
+        variant: "subtle",
+        duration: 4000,
+        isClosable: true,
+        status: "success",
+      });
+    else
+      toast({
+        title: "Product Created",
+        description: "Successfully",
+        variant: "subtle",
+        duration: 4000,
+        isClosable: true,
+        status: "success",
+      });
   };
   return (
     <Flex

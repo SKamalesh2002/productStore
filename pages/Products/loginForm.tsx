@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
 import * as yup from "yup";
 import FormTemplate from "../../templates/form";
-import { Flex, Box, Heading } from "@chakra-ui/react";
+import { Flex, Heading, useToast } from "@chakra-ui/react";
 import { stringify } from "querystring";
+import { useRouter } from "next/router";
 
 interface Props {}
 
@@ -24,6 +25,7 @@ interface button {
 }
 
 const Login: FC<Props> = () => {
+  const router = useRouter();
   const [initialValues] = useState<initialValues>({
     email: "",
     password: "",
@@ -43,8 +45,18 @@ const Login: FC<Props> = () => {
     { id: 1, label: "Password", name: "password", type: "password" },
   ]);
 
+  const toast = useToast();
   const onSubmit = (values: any) => {
     alert(stringify(values));
+    router.replace("/");
+
+    toast({
+      title: "Login Success",
+      variant: "subtle",
+      duration: 4000,
+      isClosable: true,
+      status: "success",
+    });
   };
 
   const buttons = useState<button[]>([

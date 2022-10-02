@@ -1,9 +1,10 @@
 import { FC, useState } from "react";
 import * as yup from "yup";
 
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, useToast } from "@chakra-ui/react";
 import FormTemplate from "../../templates/form";
 import { stringify } from "querystring";
+import { useRouter } from "next/router";
 
 interface Props {}
 interface initialValues {
@@ -43,8 +44,21 @@ const Register: FC<Props> = () => {
     { id: 1, label: "Password", name: "password", type: "password" },
     { id: 2, label: "Name", name: "name", type: "text" },
   ]);
+
+  const router = useRouter();
+  const toast = useToast();
+
   const onSubmit = (values: any) => {
     alert(stringify(values));
+    router.replace("/");
+
+    toast({
+      title: "Registration Success",
+      variant: "subtle",
+      duration: 4000,
+      isClosable: true,
+      status: "success",
+    });
   };
 
   const buttons = useState<button[]>([
