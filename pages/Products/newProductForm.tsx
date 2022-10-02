@@ -86,7 +86,7 @@ const NewProductForm: FC<Props> = ({ data }) => {
       scrollBehavior="smooth"
       overflow="scroll"
       w="100%"
-      h="100vh"
+      h="75vh"
       pr="1rem"
     >
       <Flex
@@ -98,8 +98,7 @@ const NewProductForm: FC<Props> = ({ data }) => {
         bg="white"
         p={6}
         rounded="lg"
-        w="100vw"
-        h="100vh"
+        w="max-content"
       >
         <Heading mb="1rem">New Product</Heading>
         <FormTemplate
