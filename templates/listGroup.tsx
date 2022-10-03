@@ -1,6 +1,5 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { FC } from "react";
-import { useRouter } from "next/router";
 
 interface category {
   id: number | null;
@@ -18,11 +17,11 @@ const ListGroup: FC<Props> = ({ categories, onItemSelect, selectedItem }) => {
     onItemSelect(category);
   };
   return (
-    <Box
+    <Flex
+      flexDirection="column"
       background="white"
       w="max-content"
       h="min-content"
-      mt="1rem"
       rounded="md"
       border="1px"
       borderColor="gray.100"
@@ -55,7 +54,7 @@ const ListGroup: FC<Props> = ({ categories, onItemSelect, selectedItem }) => {
           {category.name}
         </Flex>
       ))}
-    </Box>
+    </Flex>
   );
 };
 

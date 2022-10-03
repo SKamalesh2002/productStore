@@ -32,7 +32,7 @@ const DeleteAlert: FC<Props> = ({ onDelete, column }) => {
     toast({
       size: ["xs", "lg"],
       title: "Product Deleted",
-      description: "Product successfully Deleted",
+      description: "Successfully",
       position: "top",
       status: "success",
       duration: 2000,
@@ -65,7 +65,7 @@ const DeleteAlert: FC<Props> = ({ onDelete, column }) => {
           <AlertDialogCloseButton />
           <AlertDialogBody>Sure you want to delete?</AlertDialogBody>
           <AlertDialogFooter>
-            <Button onClick={onClose}> Cancel</Button>
+            <Button onClick={onClose}>Cancel</Button>
             <Button
               colorScheme="red"
               onClick={() => handleDelete(column)}

@@ -1,7 +1,7 @@
 import _ from "lodash";
 
 import { Welcome } from "../types/productType";
-import { Tbody, Tr, Td, Flex } from "@chakra-ui/react";
+import { Tbody, Tr, Td } from "@chakra-ui/react";
 interface column {
   path?: string;
   key: string;

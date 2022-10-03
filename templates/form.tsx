@@ -3,20 +3,15 @@ import type { field, button } from "../types/formTypes";
 import { Formik, Form, Field, ErrorMessage, FormikTouched } from "formik";
 import { FC } from "react";
 import {
-  AlertDialog,
   Button,
+  Flex,
   FormControl,
   FormLabel,
   Input,
   Select,
   Text,
-  useDisclosure,
-  useToast,
-  VStack,
 } from "@chakra-ui/react";
 import React from "react";
-
-import { useDispatch, useSelector } from "react-redux";
 
 interface Props {
   initialValues: any;
@@ -48,9 +43,10 @@ const FormTemplate: FC<Props> = ({
       }) => (
         <Form onSubmit={Fields.handleSubmit}>
           {fields.map((field) => (
-            <VStack
+            <Flex
+              flexDirection="column"
               key={field.id}
-              spacing={10}
+              gap="1rem"
               align="flex-end"
               h="100%"
               pb="1rem"
@@ -96,7 +92,7 @@ const FormTemplate: FC<Props> = ({
                   <ErrorMessage name={field.name} />
                 </Text>
               </FormControl>
-            </VStack>
+            </Flex>
           ))}
           {buttons
             ? buttons.map((button) => (

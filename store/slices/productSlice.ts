@@ -142,11 +142,11 @@ export const productSlice = createSlice({
     },
 
     SEARCH: (state, action: PayloadAction<string>) => {
+      state.currentPage = 1;
+      state.currentCategory = { id: null, name: "All category" };
       state.search = action.payload;
       state.viewData = getPageData(state).data;
       state.totalCount = getPageData(state).totalCount;
-      state.currentPage = 1;
-      state.currentCategory = { id: null, name: "All category" };
     },
   },
 });

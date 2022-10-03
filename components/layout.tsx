@@ -3,7 +3,6 @@ import type { category } from "../types/productType";
 import { FC, useState } from "react";
 import NavBar from "./navBar";
 import {
-  Divider,
   Flex,
   Menu,
   MenuButton,
@@ -57,7 +56,7 @@ const Layout: FC<Props> = ({ view }) => {
       </Flex>
 
       <Flex flexDirection="column" overflow="scroll" scrollBehavior="smooth">
-        <Flex mt="2rem" ml={["1rem", "-10rem"]}>
+        <Flex ml={["1rem", "-10rem"]}>
           <Menu autoSelect={false}>
             <MenuButton
               {...(url !== "/" ? { ml: "-10rem" } : { ml: "1rem" })}
@@ -100,7 +99,7 @@ const Layout: FC<Props> = ({ view }) => {
             />
           </Flex>
 
-          <Flex ml="1rem" h="100vh" w="100%">
+          <Flex h="100vh" w="100%">
             {view}
           </Flex>
         </Flex>

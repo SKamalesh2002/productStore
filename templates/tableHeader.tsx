@@ -2,7 +2,6 @@ import type { sortColumn } from "../types/tableTypes";
 
 import { Thead, Tr, Th } from "@chakra-ui/react";
 import { ArrowUpIcon, ArrowDownIcon } from "@chakra-ui/icons";
-import { sortColumnSelector } from "../store/slices/productSlice";
 
 interface tableHeaderProps {
   columns: column[];

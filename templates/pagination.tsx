@@ -1,6 +1,6 @@
 import { FC } from "react";
 import _ from "lodash";
-import { background, Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 interface Props {
   itemCount: number;
@@ -28,7 +28,7 @@ const Pagination: FC<Props> = ({
       borderRadius="md"
     >
       {pages.map((pageNumber) => (
-        <Box
+        <Flex
           _first={{ borderLeftRadius: "md" }}
           _last={{ borderRightRadius: "md" }}
           key={pageNumber}
@@ -54,7 +54,7 @@ const Pagination: FC<Props> = ({
               })}
         >
           {pageNumber}
-        </Box>
+        </Flex>
       ))}
     </Flex>
   );

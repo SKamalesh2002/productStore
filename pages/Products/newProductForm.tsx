@@ -66,6 +66,9 @@ const NewProductForm: FC<Props> = ({ data }) => {
   const dispatch = useDispatch();
 
   const toast = useToast();
+
+  const [formHeading] = useState(data ? `Product ${data.id}` : "New Product");
+
   const onSubmit = (values: initialValues) => {
     let newProduct = {} as Welcome;
 
@@ -81,25 +84,18 @@ const NewProductForm: FC<Props> = ({ data }) => {
 
     router.replace("/");
 
-    if (data)
-      toast({
-        title: "Product Updated",
-        description: "Successfully",
-        variant: "subtle",
-        duration: 4000,
-        isClosable: true,
-        status: "success",
-      });
-    else
-      toast({
-        title: "Product Created",
-        description: "Successfully",
-        variant: "subtle",
-        duration: 4000,
-        isClosable: true,
-        status: "success",
-      });
+    const toastTitle = data ? "Product Updated" : "Product Created";
+
+    toast({
+      title: toastTitle,
+      description: "Successfully",
+      variant: "subtle",
+      duration: 4000,
+      isClosable: true,
+      status: "success",
+    });
   };
+
   return (
     <Flex
       alignItems="center"
@@ -107,12 +103,9 @@ const NewProductForm: FC<Props> = ({ data }) => {
       scrollBehavior="smooth"
       overflow="scroll"
       w="100%"
-      h="75vh"
-      pr="1rem"
+      h="100vh"
     >
       <Flex
-        scrollBehavior="smooth"
-        overflow="scroll"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
@@ -121,7 +114,7 @@ const NewProductForm: FC<Props> = ({ data }) => {
         rounded="lg"
         w="max-content"
       >
-        <Heading mb="1rem">New Product</Heading>
+        <Heading>{formHeading}</Heading>
         <FormTemplate
           initialValues={initialValues}
           schema={schema}
