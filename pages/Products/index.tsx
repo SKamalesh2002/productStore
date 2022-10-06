@@ -78,7 +78,7 @@ const Products: FC<Props> = () => {
               />
             </Flex>
 
-            <Flex w="75%">
+            <Flex w="100%">
               <ProductTable
                 products={products}
                 onDelete={(product: Welcome): void => {
